@@ -1,0 +1,107 @@
+
+import { useEffect, useRef } from 'react';
+import { Button } from "@/components/ui/button";
+import { Music, Headphones, MusicNotes, Users } from './Icons';
+
+const Hero = () => {
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = document.querySelectorAll('.reveal-from-bottom, .reveal-from-left, .reveal-from-right');
+    elements.forEach(el => observer.observe(el));
+
+    return () => {
+      elements.forEach(el => observer.unobserve(el));
+    };
+  }, []);
+
+  return (
+    <section className="relative min-h-screen bg-gradient-to-br from-music-light via-white to-music-light overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full bg-[url('https://cdn.prod.website-files.com/65a997ed5f68daf1805ed393/65a9ce3036d69de028e61d73_65a047f193e982d20ab5a4e8_image1.jpeg')] bg-cover bg-center opacity-20"></div>
+      
+      {/* Floating Music Notes Animation */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <MusicNotes />
+      </div>
+
+      <div className="container mx-auto px-4 pt-32 pb-20 md:pt-40 md:pb-32 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="space-y-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold reveal-from-bottom hero-text-gradient">
+              Online Music Classes That Inspire
+            </h1>
+            <p className="text-lg md:text-xl text-music-dark/80 max-w-xl reveal-from-bottom delay-200">
+              Discover your musical potential with professional online classes in piano, keyboard, Bollywood singing, and Western vocals — for beginners and advanced learners alike.
+            </p>
+            
+            <div className="flex flex-wrap gap-4 reveal-from-bottom delay-400">
+              <Button className="bg-music-primary hover:bg-music-primary/90 text-white px-6 py-6 text-lg">
+                Book Free Demo Class
+              </Button>
+              <Button variant="outline" className="border-music-primary text-music-primary hover:bg-music-primary/10 px-6 py-6 text-lg">
+                Explore Courses
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-8 reveal-from-bottom delay-600">
+              <div className="flex items-center gap-2">
+                <div className="bg-music-primary/10 p-2 rounded-full">
+                  <Headphones className="h-5 w-5 text-music-primary" />
+                </div>
+                <span className="font-medium">Expert Instructors</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="bg-music-primary/10 p-2 rounded-full">
+                  <Music className="h-5 w-5 text-music-primary" />
+                </div>
+                <span className="font-medium">1:1 Classes</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="bg-music-primary/10 p-2 rounded-full">
+                  <Users className="h-5 w-5 text-music-primary" />
+                </div>
+                <span className="font-medium">Global Students</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative lg:pl-10 reveal-from-right">
+            <div className="relative rounded-lg overflow-hidden shadow-xl border-8 border-white">
+              <div className="aspect-w-16 aspect-h-9">
+                <img 
+                  src="https://braindevs.net/blog//wp-content/uploads/2017/05/AdobeStock_66165135_Credit.jpg" 
+                  alt="Students playing instruments in music class" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                <div className="p-6 text-white">
+                  <h3 className="text-xl font-bold">Professional Training</h3>
+                  <p className="text-sm opacity-80">Trinity, ABRSM & Rock School certification courses</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Decorative elements */}
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-music-accent/20 rounded-full blur-2xl"></div>
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-music-primary/20 rounded-full blur-3xl"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
