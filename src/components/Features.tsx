@@ -1,6 +1,6 @@
 
 import { useEffect } from 'react';
-import { Guitar, Piano, Mic } from './Icons';
+import { Guitar, Piano, Mic, Users, Headphones, Music } from 'lucide-react';
 
 const Features = () => {
   useEffect(() => {
