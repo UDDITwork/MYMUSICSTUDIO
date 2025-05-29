@@ -77,8 +77,8 @@ const Contact = () => {
                   <Mail className="h-6 w-6 text-music-primary mt-1" />
                   <div>
                     <h3 className="font-semibold text-music-dark">General Inquiries</h3>
-                    <p className="text-music-dark/80">contact@mymusicstudio.com</p>
-                    <p className="text-music-dark/80">+91 9876543210</p>
+                    <p className="text-music-dark/80">kamleshsagar1@gmail.com</p>
+                    <p className="text-music-dark/80">+91-8459326365</p>
                   </div>
                 </div>
 
