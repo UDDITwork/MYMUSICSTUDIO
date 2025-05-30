@@ -48,9 +48,9 @@ const CallToAction = () => {
                 Book Free Demo Class
               </Button>
             </a>
-            <Link to="/contact">
+            <Link to="/courses">
               <Button size="lg" variant="outline" className="border-white text-black hover:bg-white/10 hover:text-black px-8 py-6 text-lg">
-                Contact Us
+                View Our Courses
               </Button>
             </Link>
           </div>
