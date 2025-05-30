@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import FounderImage from '../components/FounderImage';
 import { Mail, Phone, MapPin, User } from 'lucide-react';
 
 const formSchema = z.object({
@@ -210,13 +210,16 @@ const Contact = () => {
             <p className="text-music-dark/80 mb-6 max-w-2xl mx-auto">
               Book your free demo class today and experience the My Music Studio difference!
             </p>
-            <Button className="bg-music-accent hover:bg-music-accent/90 text-white px-8 py-6 text-lg">
-              Book Free Demo Class
-            </Button>
+            <a href="https://calendly.com/kamleshsagar1/music-lessons" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-music-accent hover:bg-music-accent/90 text-white px-8 py-6 text-lg">
+                Book Free Demo Class
+              </Button>
+            </a>
           </div>
         </div>
       </div>
       <Footer />
+      <FounderImage />
     </main>
   );
 };

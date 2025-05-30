@@ -1,6 +1,7 @@
 
 import { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom';
 
 const CallToAction = () => {
   useEffect(() => {
@@ -42,12 +43,16 @@ const CallToAction = () => {
             Whether you're picking up music for the first time or returning to it after years, we're here to guide you — with patience, professionalism, and passion.
           </p>
           <div className="flex flex-wrap justify-center gap-4 reveal-from-bottom delay-400">
-            <Button size="lg" className="bg-music-accent hover:bg-music-accent/90 text-white px-8 py-6 text-lg">
-              Book Free Demo Class
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
-              Contact Us
-            </Button>
+            <a href="https://calendly.com/kamleshsagar1/music-lessons" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="bg-music-accent hover:bg-music-accent/90 text-white px-8 py-6 text-lg">
+                Book Free Demo Class
+              </Button>
+            </a>
+            <Link to="/contact">
+              <Button size="lg" variant="outline" className="border-white text-black hover:bg-white/10 hover:text-black px-8 py-6 text-lg">
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -55,7 +55,9 @@ const Navbar = () => {
             <Link to="/about" className="font-medium text-music-dark hover:text-music-accent underline-animation">About</Link>
             <Link to="/courses" className="font-medium text-music-dark hover:text-music-accent underline-animation">Courses</Link>
             <Link to="/contact" className="font-medium text-music-dark hover:text-music-accent underline-animation">Contact</Link>
-            <Button className="bg-music-primary hover:bg-music-primary/90 text-white">Book Demo Class</Button>
+            <a href="https://calendly.com/kamleshsagar1/music-lessons" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-music-primary hover:bg-music-primary/90 text-white">Book Demo Class</Button>
+            </a>
           </nav>
         </div>
       </div>
@@ -92,12 +94,16 @@ const Navbar = () => {
             >
               Contact
             </Link>
-            <Button 
-              className="bg-music-primary hover:bg-music-primary/90 text-white w-full mt-2"
+            <a 
+              href="https://calendly.com/kamleshsagar1/music-lessons" 
+              target="_blank" 
+              rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)}
             >
-              Book Demo Class
-            </Button>
+              <Button className="bg-music-primary hover:bg-music-primary/90 text-white w-full mt-2">
+                Book Demo Class
+              </Button>
+            </a>
           </nav>
         </div>
       )}

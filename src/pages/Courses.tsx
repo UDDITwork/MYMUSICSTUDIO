@@ -1,7 +1,7 @@
-
 import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import FounderImage from '../components/FounderImage';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Mic, Piano, Music, Clock, Users, CheckCircle, Star, BookOpen } from 'lucide-react';
@@ -131,9 +131,11 @@ const Courses = () => {
                       <span className="text-lg font-bold text-music-primary">₹{course.priceGroup}/class</span>
                     </div>
                   </div>
-                  <Button className="bg-music-primary hover:bg-music-primary/90 text-white w-full">
-                    Book Demo Class
-                  </Button>
+                  <a href="https://calendly.com/kamleshsagar1/music-lessons" target="_blank" rel="noopener noreferrer" className="w-full">
+                    <Button className="bg-music-primary hover:bg-music-primary/90 text-white w-full">
+                      Book Demo Class
+                    </Button>
+                  </a>
                 </CardFooter>
               </Card>
             ))}
@@ -203,9 +205,11 @@ const Courses = () => {
                       <span className="text-lg font-bold text-music-primary">₹{course.priceGroup}/class</span>
                     </div>
                   </div>
-                  <Button className="bg-music-primary hover:bg-music-primary/90 text-white w-full">
-                    Book Demo Class
-                  </Button>
+                  <a href="https://calendly.com/kamleshsagar1/music-lessons" target="_blank" rel="noopener noreferrer" className="w-full">
+                    <Button className="bg-music-primary hover:bg-music-primary/90 text-white w-full">
+                      Book Demo Class
+                    </Button>
+                  </a>
                 </CardFooter>
               </Card>
             ))}
@@ -275,9 +279,11 @@ const Courses = () => {
                       <span className="text-lg font-bold text-music-primary">₹{course.priceGroup}/class</span>
                     </div>
                   </div>
-                  <Button className="bg-music-primary hover:bg-music-primary/90 text-white w-full">
-                    Book Demo Class
-                  </Button>
+                  <a href="https://calendly.com/kamleshsagar1/music-lessons" target="_blank" rel="noopener noreferrer" className="w-full">
+                    <Button className="bg-music-primary hover:bg-music-primary/90 text-white w-full">
+                      Book Demo Class
+                    </Button>
+                  </a>
                 </CardFooter>
               </Card>
             ))}
@@ -294,13 +300,16 @@ const Courses = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto reveal-from-bottom delay-200">
             Whether you're picking up music for the first time or returning to it after years, we're here to guide you with patience, professionalism, and passion.
           </p>
-          <Button className="bg-music-accent hover:bg-music-accent/90 text-white text-lg px-8 py-3 reveal-from-bottom delay-400">
-            Book Your Free Demo Class
-          </Button>
+          <a href="https://calendly.com/kamleshsagar1/music-lessons" target="_blank" rel="noopener noreferrer">
+            <Button className="bg-music-accent hover:bg-music-accent/90 text-white text-lg px-8 py-3 reveal-from-bottom delay-400">
+              Book Your Free Demo Class
+            </Button>
+          </a>
         </div>
       </section>
 
       <Footer />
+      <FounderImage />
     </main>
   );
 };

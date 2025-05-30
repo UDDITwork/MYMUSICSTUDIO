@@ -1,6 +1,6 @@
-
 import { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom';
 import { Music, Headphones, MusicNotes, Users } from './Icons';
 
 const Hero = () => {
@@ -47,12 +47,16 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4 reveal-from-bottom delay-400">
-              <Button className="bg-music-primary hover:bg-music-primary/90 text-white px-6 py-6 text-lg">
-                Book Free Demo Class
-              </Button>
-              <Button variant="outline" className="border-music-primary text-music-primary hover:bg-music-primary/10 px-6 py-6 text-lg">
-                Explore Courses
-              </Button>
+              <a href="https://calendly.com/kamleshsagar1/music-lessons" target="_blank" rel="noopener noreferrer">
+                <Button className="bg-music-primary hover:bg-music-primary/90 text-white px-6 py-6 text-lg">
+                  Book Free Demo Class
+                </Button>
+              </a>
+              <Link to="/courses">
+                <Button variant="outline" className="border-music-primary text-music-primary hover:bg-music-primary/10 px-6 py-6 text-lg">
+                  Explore Courses
+                </Button>
+              </Link>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-8 reveal-from-bottom delay-600">

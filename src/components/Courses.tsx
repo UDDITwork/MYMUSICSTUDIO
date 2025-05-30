@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -73,9 +72,11 @@ const Courses = () => {
                   <span className="text-sm text-music-dark/70">Starting from</span>
                   <p className="text-xl font-bold text-music-primary">₹{course.price}/class</p>
                 </div>
-                <Button className="bg-music-primary hover:bg-music-primary/90 text-white w-full">
-                  Learn More
-                </Button>
+                <a href="https://calendly.com/kamleshsagar1/music-lessons" target="_blank" rel="noopener noreferrer" className="w-full">
+                  <Button className="bg-music-primary hover:bg-music-primary/90 text-white w-full">
+                    Book Demo Class
+                  </Button>
+                </a>
               </CardFooter>
             </Card>
           ))}
