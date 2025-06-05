@@ -70,7 +70,7 @@ const Courses = () => {
               <CardFooter className="flex flex-col items-start space-y-3 border-t pt-4">
                 <div>
                   <span className="text-sm text-music-dark/70">Starting from</span>
-                  <p className="text-xl font-bold text-music-primary">₹{course.price}/class</p>
+                  <p className="text-xl font-bold text-music-primary">₹399/class</p>
                 </div>
                 <a href="https://calendly.com/kamleshsagar1/music-lessons" target="_blank" rel="noopener noreferrer" className="w-full">
                   <Button className="bg-music-primary hover:bg-music-primary/90 text-white w-full">
@@ -100,7 +100,7 @@ const courses = [
     title: "Bollywood Singing",
     category: "Vocal Training",
     level: "All Levels",
-    price: "350",
+    price: "399",
     image: "https://cdn.prod.website-files.com/65a997ed5f68daf1805ed393/65a9ce3036d69de028e61d73_65a047f193e982d20ab5a4e8_image1.jpeg",
     features: [
       "Learn 7 basic notes (Sa Re Ga Ma Pa Dha Ni)",
@@ -114,7 +114,7 @@ const courses = [
     title: "Piano & Keyboard",
     category: "Instrumental",
     level: "Beginner to Advanced",
-    price: "550",
+    price: "399",
     image: "https://braindevs.net/blog//wp-content/uploads/2017/05/AdobeStock_66165135_Credit.jpg",
     features: [
       "Piano keyboard layout and posture",
@@ -128,7 +128,7 @@ const courses = [
     title: "Western Singing",
     category: "Vocal Training",
     level: "Foundation to Professional",
-    price: "550",
+    price: "399",
     image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
     features: [
       "Vocal warm-ups and posture",

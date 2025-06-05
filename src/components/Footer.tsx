@@ -1,6 +1,4 @@
-
 import { Link } from 'react-router-dom';
-import { Music } from './Icons';
 
 const Footer = () => {
   return (
@@ -9,7 +7,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <Link to="/" className="flex items-center gap-2 font-bold text-2xl mb-6">
-              <Music className="h-6 w-6 text-music-accent" />
+              <img 
+                src="https://pbs.twimg.com/media/Gsr3JFQXYAEHztY?format=jpg&name=medium" 
+                alt="My Music Studio Logo" 
+                className="h-8 w-8 rounded-full object-cover"
+              />
               <span className="font-playfair">
                 <span className="text-white">My</span>
                 <span className="text-gray-300">Music</span>

@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Music, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,7 +32,11 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between py-4">
           <Link to="/" className="flex items-center gap-2 font-bold text-2xl">
-            <Music className="h-6 w-6 text-music-primary animate-pulse-subtle" />
+            <img 
+              src="https://pbs.twimg.com/media/Gsr3JFQXYAEHztY?format=jpg&name=medium" 
+              alt="My Music Studio Logo" 
+              className="h-8 w-8 rounded-full object-cover"
+            />
             <span className="font-playfair">
               <span className="text-music-primary">My</span>
               <span className="text-music-dark">Music</span>
