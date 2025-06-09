@@ -29,7 +29,7 @@ const CallToAction = () => {
       <div className="absolute inset-0 z-0">
         <img 
           src="https://braindevs.net/blog//wp-content/uploads/2017/05/AdobeStock_66165135_Credit.jpg" 
-          alt="Students playing music" 
+          alt="Music students learning piano and singing - Join My Music Studio for online music classes" 
           className="w-full h-full object-cover"
         />
       </div>

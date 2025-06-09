@@ -6,6 +6,7 @@ import Features from '../components/Features';
 import Courses from '../components/Courses';
 import About from '../components/About';
 import Testimonials from '../components/Testimonials';
+import FAQ from '../components/FAQ';
 import CallToAction from '../components/CallToAction';
 import Footer from '../components/Footer';
 import FounderImage from '../components/FounderImage';
@@ -39,6 +40,7 @@ const Index = () => {
       <About />
       <Courses />
       <Testimonials />
+      <FAQ />
       <CallToAction />
       <Footer />
       <FounderImage />
