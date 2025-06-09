@@ -1,3 +1,7 @@
+# Robots.txt for My Music Studio - Online Music Classes
+# Website: https://mymusicstudio.in
+
+# Allow all major search engines
 User-agent: Googlebot
 Allow: /
 
@@ -10,5 +14,48 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Allow all other bots
 User-agent: *
 Allow: /
+
+# Important pages for music education
+Allow: /about
+Allow: /courses
+Allow: /contact
+
+# Allow important resources
+Allow: /static/css/
+Allow: /static/js/
+Allow: /favicon.ico
+Allow: /logo.png
+
+# Block unnecessary paths
+Disallow: /api/
+Disallow: /_netlify/
+Disallow: /admin/
+Disallow: /.netlify/
+Disallow: /*.json$
+Disallow: /build/
+Disallow: /node_modules/
+
+# Allow music-related file types
+Allow: /*.mp3$
+Allow: /*.mp4$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.webp$
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://mymusicstudio.in/sitemap.xml
+
+# Host declaration
+Host: https://mymusicstudio.in
