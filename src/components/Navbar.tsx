@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between py-4">
           <Link to="/" className="flex items-center gap-2 font-bold text-2xl">
             <img 
-              src="https://pbs.twimg.com/media/GssD69xbEAAptbH?format=jpg&name=medium" 
+              src="./logo.jpg" 
               alt="My Music Studio Logo" 
               className="h-8 w-8 rounded-full object-cover"
             />
