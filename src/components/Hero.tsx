@@ -30,7 +30,7 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-music-light via-white to-music-light overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full bg-[url('https://cdn.prod.website-files.com/65a997ed5f68daf1805ed393/65a9ce3036d69de028e61d73_65a047f193e982d20ab5a4e8_image1.jpeg')] bg-cover bg-center opacity-20"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.learningandthebrain.com/blog/wp-content/uploads/2017/05/AdobeStock_66165135_Credit.jpg')] bg-cover bg-center opacity-20"></div>
       
       {/* Floating Music Notes Animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -87,11 +87,11 @@ const Hero = () => {
               <div className="aspect-w-16 aspect-h-9">
                 <picture>
                   <source 
-                    srcSet="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80&fm=webp" 
-                    type="image/webp"
+                    srcSet="https://www.learningandthebrain.com/blog/wp-content/uploads/2017/05/AdobeStock_66165135_Credit.jpg" 
+                    type="image/jpeg"
                   />
                   <img 
-                    src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
+                    src="https://www.learningandthebrain.com/blog/wp-content/uploads/2017/05/AdobeStock_66165135_Credit.jpg" 
                     alt="Students playing instruments in professional music class - Learn piano, keyboard and singing online" 
                     className="w-full h-full object-cover"
                     width="800"
