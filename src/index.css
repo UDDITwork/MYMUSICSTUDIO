@@ -94,10 +94,27 @@
 
   body {
     @apply bg-background text-foreground font-montserrat;
+    font-display: swap;
   }
 
   h1, h2, h3, h4 {
     @apply font-playfair;
+  }
+
+  /* Critical CSS for above-the-fold content */
+  .hero-critical {
+    min-height: 100vh;
+    background: linear-gradient(135deg, hsl(var(--music-light)), white, hsl(var(--music-light)));
+  }
+
+  /* Performance optimizations */
+  img {
+    content-visibility: auto;
+  }
+
+  /* Preload critical resources */
+  link[rel="preload"] {
+    fetchpriority: high;
   }
 }
 
@@ -105,6 +122,7 @@
   .note-animation {
     animation: float 3s ease-in-out infinite;
     animation-delay: calc(var(--delay) * 0.3s);
+    will-change: transform;
   }
 
   .hero-text-gradient {
@@ -121,6 +139,13 @@
 
   .animate-on-scroll.show {
     @apply opacity-100;
+  }
+
+  /* Optimized animations */
+  .reveal-from-bottom,
+  .reveal-from-left,
+  .reveal-from-right {
+    will-change: transform, opacity;
   }
 }
 
@@ -187,4 +212,35 @@
 .bg-image-overlay > * {
   position: relative;
   z-index: 2;
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Improve font loading */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2') format('woff2');
+}
+
+/* Critical CSS for immediate loading */
+.navbar-critical {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  transition: all 0.3s ease;
 }

@@ -32,11 +32,20 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between py-4">
           <Link to="/" className="flex items-center gap-2 font-bold text-2xl">
-            <img 
-              src="/logo.png" 
-              alt="My Music Studio - Online Music Classes Logo" 
-              className="h-8 w-8 rounded-full object-cover"
-            />
+            <picture>
+              <source 
+                srcSet="/logo.PNG"
+                type="image/png"
+              />
+              <img 
+                src="/logo.PNG" 
+                alt="My Music Studio - Online Music Classes Logo" 
+                className="h-8 w-8 rounded-full object-cover"
+                width="32"
+                height="32"
+                loading="eager"
+              />
+            </picture>
             <span className="font-playfair">
               <span className="text-music-primary">My</span>
               <span className="text-music-dark">Music</span>

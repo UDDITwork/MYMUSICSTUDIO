@@ -10,6 +10,8 @@ import FAQ from '../components/FAQ';
 import CallToAction from '../components/CallToAction';
 import Footer from '../components/Footer';
 import FounderImage from '../components/FounderImage';
+import PerformanceOptimizer from '../components/PerformanceOptimizer';
+import SEO from '../components/SEO';
 
 const Index = () => {
   useEffect(() => {
@@ -33,18 +35,22 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="min-h-screen bg-white">
-      <Navbar />
-      <Hero />
-      <Features />
-      <About />
-      <Courses />
-      <Testimonials />
-      <FAQ />
-      <CallToAction />
-      <Footer />
-      <FounderImage />
-    </main>
+    <>
+      <SEO />
+      <PerformanceOptimizer />
+      <main className="min-h-screen bg-white">
+        <Navbar />
+        <Hero />
+        <Features />
+        <About />
+        <Courses />
+        <Testimonials />
+        <FAQ />
+        <CallToAction />
+        <Footer />
+        <FounderImage />
+      </main>
+    </>
   );
 };
 

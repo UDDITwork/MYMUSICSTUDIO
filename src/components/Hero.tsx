@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
@@ -84,11 +85,20 @@ const Hero = () => {
           <div className="relative lg:pl-10 reveal-from-right">
             <div className="relative rounded-lg overflow-hidden shadow-xl border-8 border-white">
               <div className="aspect-w-16 aspect-h-9">
-                <img 
-                  src="https://braindevs.net/blog//wp-content/uploads/2017/05/AdobeStock_66165135_Credit.jpg" 
-                  alt="Students playing instruments in music class" 
-                  className="w-full h-full object-cover"
-                />
+                <picture>
+                  <source 
+                    srcSet="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80&fm=webp" 
+                    type="image/webp"
+                  />
+                  <img 
+                    src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
+                    alt="Students playing instruments in professional music class - Learn piano, keyboard and singing online" 
+                    className="w-full h-full object-cover"
+                    width="800"
+                    height="600"
+                    fetchPriority="high"
+                  />
+                </picture>
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                 <div className="p-6 text-white">

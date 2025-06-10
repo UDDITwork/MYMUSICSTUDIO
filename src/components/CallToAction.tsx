@@ -27,11 +27,20 @@ const CallToAction = () => {
   return (
     <section className="py-20 bg-image-overlay relative">
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://braindevs.net/blog//wp-content/uploads/2017/05/AdobeStock_66165135_Credit.jpg" 
-          alt="Music students learning piano and singing - Join My Music Studio for online music classes" 
-          className="w-full h-full object-cover"
-        />
+        <picture>
+          <source 
+            srcSet="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=800&q=80&fm=webp" 
+            type="image/webp"
+          />
+          <img 
+            src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=800&q=80" 
+            alt="Music students learning piano and singing - Join My Music Studio for online music classes" 
+            className="w-full h-full object-cover"
+            width="1200"
+            height="800"
+            loading="lazy"
+          />
+        </picture>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
