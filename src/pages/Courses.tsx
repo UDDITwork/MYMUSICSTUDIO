@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -89,6 +90,9 @@ const Courses = () => {
                     src={course.image} 
                     alt={course.title} 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    width="400"
+                    height="300"
+                    loading="lazy"
                   />
                   <div className="absolute top-4 left-4 bg-music-accent text-white text-sm font-semibold py-1 px-3 rounded-full">
                     {course.level}
@@ -163,6 +167,9 @@ const Courses = () => {
                     src={course.image} 
                     alt={course.title} 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    width="400"
+                    height="300"
+                    loading="lazy"
                   />
                   <div className="absolute top-4 left-4 bg-music-accent text-white text-sm font-semibold py-1 px-3 rounded-full">
                     {course.level}
@@ -237,6 +244,9 @@ const Courses = () => {
                     src={course.image} 
                     alt={course.title} 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    width="400"
+                    height="300"
+                    loading="lazy"
                   />
                   <div className="absolute top-4 left-4 bg-music-accent text-white text-sm font-semibold py-1 px-3 rounded-full">
                     {course.level}
@@ -331,7 +341,7 @@ const westernSingingCourses = [
       "Rhythm training through clapping and tapping exercises",
       "Confidence-building with mic and camera"
     ],
-    price1on1: "550",
+    price1on1: "399",
     priceGroup: "350"
   },
   {
@@ -350,7 +360,7 @@ const westernSingingCourses = [
       "Duets and ensemble singing basics",
       "Mic technique for live vs studio setups"
     ],
-    price1on1: "650",
+    price1on1: "450",
     priceGroup: "450"
   },
   {
@@ -369,7 +379,7 @@ const westernSingingCourses = [
       "Building stamina for long performances",
       "Audition prep and performance anxiety handling"
     ],
-    price1on1: "750",
+    price1on1: "499",
     priceGroup: "500"
   }
 ];
@@ -390,7 +400,7 @@ const pianoCourses = [
       "Introduction to rhythm: quarter, half, whole notes",
       "Dynamics: playing loud and soft with control"
     ],
-    price1on1: "550",
+    price1on1: "399",
     priceGroup: "350"
   },
   {
@@ -408,7 +418,7 @@ const pianoCourses = [
       "Understanding time signatures and bar lines",
       "Ear training and rhythmic clapping"
     ],
-    price1on1: "650",
+    price1on1: "450",
     priceGroup: "450"
   },
   {
@@ -426,7 +436,7 @@ const pianoCourses = [
       "Duets and ensemble-style piano arrangements",
       "Preparing for recitals, video recordings, and exams"
     ],
-    price1on1: "750",
+    price1on1: "499",
     priceGroup: "500"
   }
 ];
@@ -448,7 +458,7 @@ const bollywoodSingingCourses = [
       "Singing simple Bollywood songs on pitch",
       "Introduction to Rhythm (Taal) using Clap exercises"
     ],
-    price1on1: "550",
+    price1on1: "399",
     priceGroup: "350"
   },
   {
@@ -467,7 +477,7 @@ const bollywoodSingingCourses = [
       "Emotional Expression & Storytelling – feel the lyrics",
       "Understanding Mic Techniques – studio & live singing"
     ],
-    price1on1: "650",
+    price1on1: "450",
     priceGroup: "450"
   },
   {
@@ -486,7 +496,7 @@ const bollywoodSingingCourses = [
       "Camera Confidence & Body Language",
       "Studio Singing Practice – vocal layering, click track"
     ],
-    price1on1: "750",
+    price1on1: "499",
     priceGroup: "500"
   }
 ];

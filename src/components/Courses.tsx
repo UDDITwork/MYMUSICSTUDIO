@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -45,6 +46,9 @@ const Courses = () => {
                   src={course.image} 
                   alt={course.title} 
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  width="400"
+                  height="300"
+                  loading="lazy"
                 />
                 <div className="absolute top-4 left-4 bg-music-accent text-white text-sm font-semibold py-1 px-3 rounded-full">
                   {course.level}
