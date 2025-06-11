@@ -1,0 +1,10 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "https://mymusicstudio.in/*"
+  to = "https://www.mymusicstudio.in/:splat"
+  status = 301
+  force = true
