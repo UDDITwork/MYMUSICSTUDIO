@@ -68,6 +68,9 @@ const Testimonials = () => {
                           src={`https://i.pravatar.cc/150?img=${testimonial.avatar}`} 
                           alt={testimonial.name} 
                           className="w-full h-full object-cover"
+                          width="80"
+                          height="80"
+                          loading="lazy"
                         />
                       </div>
                     </div>
@@ -81,7 +84,7 @@ const Testimonials = () => {
                         "{testimonial.quote}"
                       </blockquote>
                       <div>
-                        <h4 className="font-bold text-music-dark">{testimonial.name}</h4>
+                        <h3 className="font-bold text-music-dark">{testimonial.name}</h3>
                         <p className="text-sm text-music-dark/60">{testimonial.course}</p>
                       </div>
                     </div>
@@ -95,7 +98,7 @@ const Testimonials = () => {
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                className={`w-3 h-3 mx-1 rounded-full transition-all duration-300 ${
+                className={`w-4 h-4 mx-1 rounded-full transition-all duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center ${
                   index === currentIndex ? 'bg-music-primary scale-125' : 'bg-gray-300'
                 }`}
                 onClick={() => setCurrentIndex(index)}

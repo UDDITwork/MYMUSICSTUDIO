@@ -116,6 +116,15 @@
   link[rel="preload"] {
     fetchpriority: high;
   }
+
+  /* Ensure minimum touch target sizes */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @layer components {
@@ -146,6 +155,16 @@
   .reveal-from-left,
   .reveal-from-right {
     will-change: transform, opacity;
+  }
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }
 

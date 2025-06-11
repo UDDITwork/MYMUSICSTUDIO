@@ -49,12 +49,12 @@ const Hero = () => {
             
             <div className="flex flex-wrap gap-4 reveal-from-bottom delay-400">
               <a href="https://calendly.com/kamleshsagar1/music-lessons" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-music-primary hover:bg-music-primary/90 text-white px-6 py-6 text-lg">
+                <Button className="bg-music-primary hover:bg-music-primary/90 text-white px-8 py-4 text-lg min-h-[48px] min-w-[160px]">
                   Book Free Demo Class
                 </Button>
               </a>
               <Link to="/courses">
-                <Button variant="outline" className="border-music-primary text-music-primary hover:bg-music-primary/10 px-6 py-6 text-lg">
+                <Button variant="outline" className="border-music-primary text-music-primary hover:bg-music-primary/10 px-8 py-4 text-lg min-h-[48px] min-w-[140px]">
                   Explore Courses
                 </Button>
               </Link>
@@ -97,12 +97,13 @@ const Hero = () => {
                     width="800"
                     height="600"
                     fetchPriority="high"
+                    decoding="async"
                   />
                 </picture>
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                 <div className="p-6 text-white">
-                  <h3 className="text-xl font-bold">Professional Training</h3>
+                  <h2 className="text-xl font-bold">Professional Training</h2>
                   <p className="text-sm opacity-80">Trinity, ABRSM & Rock School certification courses</p>
                 </div>
               </div>

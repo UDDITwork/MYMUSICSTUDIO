@@ -39,6 +39,7 @@ const CallToAction = () => {
             width="1200"
             height="800"
             loading="lazy"
+            decoding="async"
           />
         </picture>
       </div>
@@ -53,12 +54,12 @@ const CallToAction = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4 reveal-from-bottom delay-400">
             <a href="https://calendly.com/kamleshsagar1/music-lessons" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-music-accent hover:bg-music-accent/90 text-white px-8 py-6 text-lg">
+              <Button size="lg" className="bg-music-accent hover:bg-music-accent/90 text-white px-8 py-4 text-lg min-h-[48px] min-w-[180px]">
                 Book Free Demo Class
               </Button>
             </a>
             <Link to="/courses">
-              <Button size="lg" variant="outline" className="border-white text-black hover:bg-white/10 hover:text-black px-8 py-6 text-lg">
+              <Button size="lg" variant="outline" className="border-white text-black hover:bg-white/10 hover:text-black px-8 py-4 text-lg min-h-[48px] min-w-[160px]">
                 View Our Courses
               </Button>
             </Link>

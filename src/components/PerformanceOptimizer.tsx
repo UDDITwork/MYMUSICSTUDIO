@@ -3,16 +3,40 @@ import { useEffect } from 'react';
 
 const PerformanceOptimizer = () => {
   useEffect(() => {
-    // Preload critical resources
-    const preloadCriticalResources = () => {
-      // Preload hero image
+    // Preload critical hero image (LCP element)
+    const preloadHeroImage = () => {
       const heroImageLink = document.createElement('link');
       heroImageLink.rel = 'preload';
       heroImageLink.as = 'image';
-      heroImageLink.href = 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80&fm=webp';
+      heroImageLink.href = 'https://www.learningandthebrain.com/blog/wp-content/uploads/2017/05/AdobeStock_66165135_Credit.jpg';
+      heroImageLink.fetchPriority = 'high';
       document.head.appendChild(heroImageLink);
+    };
 
-      // Preload critical fonts
+    // Add resource hints for performance
+    const addResourceHints = () => {
+      const domains = ['fonts.googleapis.com', 'fonts.gstatic.com', 'calendly.com', 'www.learningandthebrain.com'];
+      
+      domains.forEach(domain => {
+        const link = document.createElement('link');
+        link.rel = 'dns-prefetch';
+        link.href = `//${domain}`;
+        document.head.appendChild(link);
+      });
+
+      // Preconnect to critical domains
+      const preconnectDomains = ['https://fonts.googleapis.com', 'https://fonts.gstatic.com'];
+      preconnectDomains.forEach(domain => {
+        const link = document.createElement('link');
+        link.rel = 'preconnect';
+        link.href = domain;
+        link.crossOrigin = 'anonymous';
+        document.head.appendChild(link);
+      });
+    };
+
+    // Optimize font loading
+    const optimizeFontLoading = () => {
       const fontLink = document.createElement('link');
       fontLink.rel = 'preload';
       fontLink.as = 'font';
@@ -22,67 +46,38 @@ const PerformanceOptimizer = () => {
       document.head.appendChild(fontLink);
     };
 
-    // Implement lazy loading for images below the fold
-    const implementLazyLoading = () => {
-      const images = document.querySelectorAll('img[data-lazy]');
-      
-      const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target as HTMLImageElement;
-            img.src = img.dataset.lazy!;
-            img.removeAttribute('data-lazy');
-            imageObserver.unobserve(img);
-          }
-        });
-      });
-
-      images.forEach(img => imageObserver.observe(img));
-    };
-
-    // Optimize third-party scripts
-    const optimizeThirdPartyScripts = () => {
-      // Defer non-critical scripts
-      const scripts = document.querySelectorAll('script[data-defer]');
+    // Defer non-critical scripts
+    const deferNonCriticalScripts = () => {
+      const scripts = document.querySelectorAll('script[src*="calendly"], script[src*="analytics"]');
       scripts.forEach(script => {
-        script.setAttribute('defer', 'true');
-      });
-    };
-
-    // Add resource hints
-    const addResourceHints = () => {
-      // DNS prefetch for external domains
-      const domains = ['fonts.googleapis.com', 'fonts.gstatic.com', 'calendly.com', 'images.unsplash.com'];
-      
-      domains.forEach(domain => {
-        const link = document.createElement('link');
-        link.rel = 'dns-prefetch';
-        link.href = `//${domain}`;
-        document.head.appendChild(link);
+        if (!script.hasAttribute('defer')) {
+          script.setAttribute('defer', 'true');
+        }
       });
     };
 
     // Execute optimizations
-    preloadCriticalResources();
-    implementLazyLoading();
-    optimizeThirdPartyScripts();
+    preloadHeroImage();
     addResourceHints();
+    optimizeFontLoading();
+    deferNonCriticalScripts();
 
     // Cleanup function
     return () => {
-      // Remove preload links after they're no longer needed
       const preloadLinks = document.querySelectorAll('link[rel="preload"]');
       preloadLinks.forEach(link => {
         if (link.getAttribute('as') === 'image') {
           setTimeout(() => {
-            link.remove();
-          }, 10000); // Remove after 10 seconds
+            if (link.parentNode) {
+              link.remove();
+            }
+          }, 10000);
         }
       });
     };
   }, []);
 
-  return null; // This component doesn't render anything
+  return null;
 };
 
 export default PerformanceOptimizer;
