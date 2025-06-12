@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -28,6 +28,7 @@ const Blog = () => {
   const [showAuth, setShowAuth] = useState(false);
   const { isAuthenticated, setIsAuthenticated } = useBlogAuth();
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchBlogs();
@@ -58,11 +59,21 @@ const Blog = () => {
   };
 
   const handleAddBlog = () => {
+    console.log('Add blog clicked, isAuthenticated:', isAuthenticated);
+    
     if (isAuthenticated) {
-      window.location.href = '/blog/new';
+      console.log('User is authenticated, navigating to /blog/new');
+      navigate('/blog/new');
     } else {
+      console.log('User not authenticated, showing auth modal');
       setShowAuth(true);
     }
+  };
+
+  const handleAuthenticated = () => {
+    console.log('Authentication successful, navigating to /blog/new');
+    setIsAuthenticated(true);
+    navigate('/blog/new');
   };
 
   return (
@@ -137,7 +148,7 @@ const Blog = () => {
       <BlogAuth 
         isOpen={showAuth}
         onClose={() => setShowAuth(false)}
-        onAuthenticated={() => setIsAuthenticated(true)}
+        onAuthenticated={handleAuthenticated}
       />
     </>
   );

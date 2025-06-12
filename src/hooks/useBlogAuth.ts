@@ -6,10 +6,13 @@ export const useBlogAuth = () => {
 
   useEffect(() => {
     const authStatus = localStorage.getItem('blogAuth');
-    setIsAuthenticated(authStatus === 'true');
+    const isAuth = authStatus === 'true';
+    console.log('useBlogAuth - checking localStorage:', authStatus, 'isAuth:', isAuth);
+    setIsAuthenticated(isAuth);
   }, []);
 
   const logout = () => {
+    console.log('Logging out - removing blogAuth from localStorage');
     localStorage.removeItem('blogAuth');
     setIsAuthenticated(false);
   };

@@ -22,16 +22,26 @@ const BlogAuth: React.FC<BlogAuthProps> = ({ isOpen, onClose, onAuthenticated })
     e.preventDefault();
     setIsLoading(true);
 
+    console.log('Login attempt with:', email);
+
     // Hardcoded credentials check
     if (email === 'kamleshsagar@gmail.com' && password === 'jpmcA@123') {
       localStorage.setItem('blogAuth', 'true');
+      console.log('Login successful, blogAuth set to true');
+      
       toast({
         title: "Login Successful",
         description: "You can now create blog posts.",
       });
+      
       onAuthenticated();
       onClose();
+      
+      // Reset form
+      setEmail('');
+      setPassword('');
     } else {
+      console.log('Login failed - invalid credentials');
       toast({
         title: "Login Failed",
         description: "Invalid credentials. Please try again.",
