@@ -13,6 +13,9 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NewBlog from "./pages/NewBlog";
 import NotFound from "./pages/NotFound";
+import BollywoodSinging from "./pages/BollywoodSinging";
+import WesternSinging from "./pages/WesternSinging";
+import TrinityCertification from "./pages/TrinityCertification";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +30,9 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/courses" element={<Courses />} />
+            <Route path="/courses/bollywood-singing" element={<BollywoodSinging />} />
+            <Route path="/courses/western-singing" element={<WesternSinging />} />
+            <Route path="/courses/trinity-certification" element={<TrinityCertification />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/new" element={<NewBlog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
