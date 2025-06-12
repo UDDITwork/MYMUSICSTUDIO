@@ -1,126 +1,153 @@
 
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md' : 'bg-transparent'
-      }`}
-    >
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between py-4">
-          <Link to="/" className="flex items-center gap-2 font-bold text-2xl">
-            <picture>
-              <source 
-                srcSet="/logo.PNG"
-                type="image/png"
-              />
+    <nav className="bg-white shadow-lg sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0 flex items-center">
+            <Link to="/" className="flex items-center space-x-2">
               <img 
                 src="/logo.PNG" 
-                alt="My Music Studio - Online Music Classes Logo" 
-                className="h-8 w-8 rounded-full object-cover"
-                width="32"
-                height="32"
-                loading="eager"
+                alt="My Music Studio Logo" 
+                className="h-10 w-auto"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
               />
-            </picture>
-            <span className="font-playfair">
-              <span className="text-music-primary">My</span>
-              <span className="text-music-dark">Music</span>
-              <span className="text-music-accent">Studio</span>
-            </span>
-          </Link>
-
-          {/* Mobile menu button */}
-          <button 
-            className="md:hidden text-music-dark focus:outline-none"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle navigation menu"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+              <span className="text-xl font-bold text-purple-600">My Music Studio</span>
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
-            <Link to="/" className="font-medium text-music-dark hover:text-music-accent underline-animation">Home</Link>
-            <Link to="/about" className="font-medium text-music-dark hover:text-music-accent underline-animation">About</Link>
-            <Link to="/courses" className="font-medium text-music-dark hover:text-music-accent underline-animation">Courses</Link>
-            <Link to="/contact" className="font-medium text-music-dark hover:text-music-accent underline-animation">Contact</Link>
-            <a href="https://calendly.com/kamleshsagar1/music-lessons" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-music-primary hover:bg-music-primary/90 text-white">Book Demo Class</Button>
-            </a>
-          </nav>
-        </div>
-      </div>
-
-      {/* Mobile Navigation Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md shadow-md animate-fade-in">
-          <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
-            <Link 
-              to="/" 
-              className="font-medium text-music-dark hover:text-music-accent px-2 py-3 hover:bg-gray-50 rounded-md"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link 
-              to="/about" 
-              className="font-medium text-music-dark hover:text-music-accent px-2 py-3 hover:bg-gray-50 rounded-md"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link 
-              to="/courses" 
-              className="font-medium text-music-dark hover:text-music-accent px-2 py-3 hover:bg-gray-50 rounded-md"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Courses
-            </Link>
-            <Link 
-              to="/contact" 
-              className="font-medium text-music-dark hover:text-music-accent px-2 py-3 hover:bg-gray-50 rounded-md"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            <a 
-              href="https://calendly.com/kamleshsagar1/music-lessons" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <Button className="bg-music-primary hover:bg-music-primary/90 text-white w-full mt-2">
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-8">
+              <Link 
+                to="/" 
+                className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors"
+              >
+                Home
+              </Link>
+              <Link 
+                to="/about" 
+                className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors"
+              >
+                About
+              </Link>
+              <Link 
+                to="/courses" 
+                className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors"
+              >
+                Courses
+              </Link>
+              <Link 
+                to="/blog" 
+                className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors"
+              >
+                Blog
+              </Link>
+              <Link 
+                to="/contact" 
+                className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors"
+              >
+                Contact
+              </Link>
+              <a 
+                href="https://calendly.com/kamleshsagar1/30min" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-purple-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-purple-700 transition-colors"
+              >
                 Book Demo Class
-              </Button>
-            </a>
-          </nav>
+              </a>
+            </div>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={toggleMenu}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-purple-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500"
+              aria-expanded="false"
+            >
+              <span className="sr-only">Open main menu</span>
+              {isMenuOpen ? (
+                <X className="block h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="block h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </div>
         </div>
-      )}
-    </header>
+
+        {/* Mobile menu */}
+        {isMenuOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+              <Link 
+                to="/" 
+                onClick={closeMenu}
+                className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium transition-colors"
+              >
+                Home
+              </Link>
+              <Link 
+                to="/about" 
+                onClick={closeMenu}
+                className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium transition-colors"
+              >
+                About
+              </Link>
+              <Link 
+                to="/courses" 
+                onClick={closeMenu}
+                className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium transition-colors"
+              >
+                Courses
+              </Link>
+              <Link 
+                to="/blog" 
+                onClick={closeMenu}
+                className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium transition-colors"
+              >
+                Blog
+              </Link>
+              <Link 
+                to="/contact" 
+                onClick={closeMenu}
+                className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium transition-colors"
+              >
+                Contact
+              </Link>
+              <a 
+                href="https://calendly.com/kamleshsagar1/30min" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+                className="bg-purple-600 text-white block px-3 py-2 text-base font-medium hover:bg-purple-700 transition-colors rounded-md mx-3 mt-2"
+              >
+                Book Demo Class
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 };
 
