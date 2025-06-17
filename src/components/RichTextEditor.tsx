@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+
+import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { 
   Bold, 
@@ -26,6 +27,70 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 }) => {
   const editorRef = useRef<HTMLDivElement>(null);
   const [selectedFormat, setSelectedFormat] = useState<string[]>([]);
+
+  // Add custom CSS styles to document head
+  useEffect(() => {
+    const styleId = 'rich-text-editor-styles';
+    if (!document.getElementById(styleId)) {
+      const style = document.createElement('style');
+      style.id = styleId;
+      style.textContent = `
+        [contenteditable]:empty:before {
+          content: attr(data-placeholder);
+          color: #9ca3af;
+          pointer-events: none;
+        }
+        
+        [contenteditable] h1 {
+          font-size: 2em;
+          font-weight: bold;
+          margin: 0.67em 0;
+        }
+        
+        [contenteditable] h2 {
+          font-size: 1.5em;
+          font-weight: bold;
+          margin: 0.75em 0;
+        }
+        
+        [contenteditable] h3 {
+          font-size: 1.25em;
+          font-weight: bold;
+          margin: 0.83em 0;
+        }
+        
+        [contenteditable] ul, [contenteditable] ol {
+          padding-left: 2em;
+          margin: 1em 0;
+        }
+        
+        [contenteditable] blockquote {
+          border-left: 4px solid #e5e7eb;
+          padding-left: 1em;
+          margin: 1em 0;
+          font-style: italic;
+          color: #6b7280;
+        }
+        
+        [contenteditable] a {
+          color: #3b82f6;
+          text-decoration: underline;
+        }
+        
+        [contenteditable] p {
+          margin: 0.5em 0;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    return () => {
+      const existingStyle = document.getElementById(styleId);
+      if (existingStyle) {
+        existingStyle.remove();
+      }
+    };
+  }, []);
 
   const executeCommand = (command: string, value?: string) => {
     document.execCommand(command, false, value);
@@ -151,54 +216,6 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         }}
         data-placeholder={placeholder}
       />
-
-      <style jsx>{`
-        [contenteditable]:empty:before {
-          content: attr(data-placeholder);
-          color: #9ca3af;
-          pointer-events: none;
-        }
-        
-        [contenteditable] h1 {
-          font-size: 2em;
-          font-weight: bold;
-          margin: 0.67em 0;
-        }
-        
-        [contenteditable] h2 {
-          font-size: 1.5em;
-          font-weight: bold;
-          margin: 0.75em 0;
-        }
-        
-        [contenteditable] h3 {
-          font-size: 1.25em;
-          font-weight: bold;
-          margin: 0.83em 0;
-        }
-        
-        [contenteditable] ul, [contenteditable] ol {
-          padding-left: 2em;
-          margin: 1em 0;
-        }
-        
-        [contenteditable] blockquote {
-          border-left: 4px solid #e5e7eb;
-          padding-left: 1em;
-          margin: 1em 0;
-          font-style: italic;
-          color: #6b7280;
-        }
-        
-        [contenteditable] a {
-          color: #3b82f6;
-          text-decoration: underline;
-        }
-        
-        [contenteditable] p {
-          margin: 0.5em 0;
-        }
-      `}</style>
     </div>
   );
 };
