@@ -1,2 +1,6 @@
-https://mymusicstudio.in/*    https://www.mymusicstudio.in/:splat   301!
-/*    /index.html   200
+
+# Force HTTPS and www subdomain redirect
+https://mymusicstudio.in/* https://www.mymusicstudio.in/:splat 301!
+
+# Handle all other requests to index.html for SPA routing
+/* /index.html 200
