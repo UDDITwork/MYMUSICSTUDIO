@@ -1,12 +1,15 @@
+
 # Robots.txt for My Music Studio - Online Music Classes
 # Website: https://mymusicstudio.in
 
-# Allow all major search engines
+# Allow all major search engines with enhanced directives
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -23,19 +26,28 @@ Allow: /
 # Allow all other bots
 User-agent: *
 Allow: /
+Crawl-delay: 2
 
-# Important pages for music education
+# Important pages for music education SEO
+Allow: /
 Allow: /about
 Allow: /courses
+Allow: /courses/bollywood-singing
+Allow: /courses/western-singing
+Allow: /courses/trinity-certification
 Allow: /contact
+Allow: /blog
+Allow: /blog/*
 
-# Allow important resources
+# Allow important resources for SEO
 Allow: /static/css/
 Allow: /static/js/
 Allow: /favicon.ico
 Allow: /logo.png
+Allow: /og-image.jpg
+Allow: /twitter-image.jpg
 
-# Block unnecessary paths
+# Block unnecessary paths that don't help SEO
 Disallow: /api/
 Disallow: /_netlify/
 Disallow: /admin/
@@ -43,19 +55,29 @@ Disallow: /.netlify/
 Disallow: /*.json$
 Disallow: /build/
 Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
 
-# Allow music-related file types
+# Allow music-related file types for rich snippets
 Allow: /*.mp3$
 Allow: /*.mp4$
 Allow: /*.jpg$
 Allow: /*.png$
 Allow: /*.webp$
+Allow: /*.jpeg$
 
-# Crawl delay for respectful crawling
+# Enhanced crawl delay for respectful crawling
 Crawl-delay: 1
 
-# Sitemap location
+# Multiple sitemap declarations for better indexing
 Sitemap: https://mymusicstudio.in/sitemap.xml
+Sitemap: https://mymusicstudio.in/sitemap-courses.xml
+Sitemap: https://mymusicstudio.in/sitemap-blog.xml
 
-# Host declaration
+# Host declaration for canonical URL
 Host: https://mymusicstudio.in
+
+# Clean URL parameters that don't affect content
+Disallow: /*?utm_*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
