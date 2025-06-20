@@ -45,16 +45,102 @@ const WesternSinging = () => {
             "@context": "https://schema.org",
             "@type": "Course",
             "name": "Western Singing Course",
-            "description": "3-level Western singing course covering Pop, Rock, Gospel and Acoustic genres",
+            "description": "3-level Western singing course covering Pop, Rock, Gospel and Acoustic genres with Trinity Rock & Pop certification preparation.",
             "provider": {
               "@type": "Organization",
-              "name": "My Music Studio"
+              "name": "My Music Studio",
+              "url": "https://mymusicstudio.in",
+              "logo": "https://mymusicstudio.in/logo.PNG",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91-8459326365",
+                "contactType": "customer service",
+                "email": "kamleshsagar1@gmail.com"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Pune",
+                "addressRegion": "Maharashtra", 
+                "addressCountry": "IN"
+              }
             },
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Level 1 - Beginner's Vocal Discovery",
+                "description": "Perfect for complete beginners exploring Western music",
+                "price": "399",
+                "priceCurrency": "INR",
+                "priceValidUntil": "2025-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2025-01-01",
+                "url": "https://calendly.com/kamleshsagar1/music-lessons"
+              },
+              {
+                "@type": "Offer",
+                "name": "Level 2 - Intermediate Harmony & Expression", 
+                "description": "Focus on vocal tone, harmony, and Trinity/Rockschool prep",
+                "price": "450",
+                "priceCurrency": "INR",
+                "priceValidUntil": "2025-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2025-01-01",
+                "url": "https://calendly.com/kamleshsagar1/music-lessons"
+              },
+              {
+                "@type": "Offer",
+                "name": "Level 3 - Advanced Performer & Certification",
+                "description": "Serious learners preparing for advanced performance",
+                "price": "500",
+                "priceCurrency": "INR", 
+                "priceValidUntil": "2025-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2025-01-01",
+                "url": "https://calendly.com/kamleshsagar1/music-lessons"
+              }
+            ],
+            "hasCourseInstance": [
+              {
+                "@type": "CourseInstance",
+                "courseMode": "online",
+                "courseSchedule": {
+                  "@type": "Schedule",
+                  "scheduleTimezone": "Asia/Kolkata",
+                  "repeatFrequency": "P1W",
+                  "duration": "PT60M"
+                },
+                "instructor": {
+                  "@type": "Person",
+                  "name": "Kamlesh Sagar",
+                  "jobTitle": "Professional Music Instructor",
+                  "description": "15+ years of vocal coaching experience with Trinity certification",
+                  "url": "https://mymusicstudio.in/music-teacher-kamlesh-sagar"
+                },
+                "courseWorkload": "PT3M",
+                "courseFee": {
+                  "@type": "PriceSpecification",
+                  "price": "399-500",
+                  "priceCurrency": "INR"
+                }
+              }
+            ],
             "courseMode": "online",
             "educationalLevel": "Beginner to Advanced",
-            "instructor": {
-              "@type": "Person",
-              "name": "Kamlesh Sagar"
+            "teaches": [
+              "Vocal warm-ups and posture",
+              "Diaphragmatic breathing techniques",
+              "Staff notation and rhythm training",
+              "Pop, Rock, Gospel, and Acoustic styles",
+              "Harmony singing and chord progressions",
+              "Trinity Rock & Pop certification preparation"
+            ],
+            "timeRequired": "PT3M",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "120",
+              "bestRating": "5",
+              "worstRating": "1"
             }
           })}
         </script>

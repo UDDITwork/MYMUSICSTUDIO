@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import BollywoodSinging from "./pages/BollywoodSinging";
 import WesternSinging from "./pages/WesternSinging";
 import TrinityCertification from "./pages/TrinityCertification";
+import PianoPage from "./pages/Piano";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/courses" element={<Courses />} />
             <Route path="/courses/bollywood-singing" element={<BollywoodSinging />} />
             <Route path="/courses/western-singing" element={<WesternSinging />} />
+            <Route path="/courses/piano" element={<PianoPage />} />
             <Route path="/courses/trinity-certification" element={<TrinityCertification />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/new" element={<NewBlog />} />

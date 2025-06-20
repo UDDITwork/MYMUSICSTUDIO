@@ -45,16 +45,102 @@ const BollywoodSinging = () => {
             "@context": "https://schema.org",
             "@type": "Course",
             "name": "Bollywood Singing Course",
-            "description": "3-level Bollywood singing course from beginner to playback professional",
+            "description": "3-level Bollywood singing course from beginner to playback professional. Learn sur-taal, raag-based songs, and performance skills with personalized vocal training.",
             "provider": {
               "@type": "Organization",
-              "name": "My Music Studio"
+              "name": "My Music Studio",
+              "url": "https://mymusicstudio.in",
+              "logo": "https://mymusicstudio.in/logo.PNG",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91-8459326365",
+                "contactType": "customer service",
+                "email": "kamleshsagar1@gmail.com"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Pune",
+                "addressRegion": "Maharashtra",
+                "addressCountry": "IN"
+              }
             },
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Level 1 - Foundation Building",
+                "description": "Perfect for complete beginners exploring Bollywood music",
+                "price": "399",
+                "priceCurrency": "INR",
+                "priceValidUntil": "2025-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2025-01-01",
+                "url": "https://calendly.com/kamleshsagar1/music-lessons"
+              },
+              {
+                "@type": "Offer", 
+                "name": "Level 2 - Performance Training",
+                "description": "Develop vocal power and raag-based melodies",
+                "price": "450",
+                "priceCurrency": "INR",
+                "priceValidUntil": "2025-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2025-01-01",
+                "url": "https://calendly.com/kamleshsagar1/music-lessons"
+              },
+              {
+                "@type": "Offer",
+                "name": "Level 3 - Professional Mastery", 
+                "description": "Stage-ready vocalist with studio recording skills",
+                "price": "500",
+                "priceCurrency": "INR",
+                "priceValidUntil": "2025-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2025-01-01",
+                "url": "https://calendly.com/kamleshsagar1/music-lessons"
+              }
+            ],
+            "hasCourseInstance": [
+              {
+                "@type": "CourseInstance",
+                "courseMode": "online",
+                "courseSchedule": {
+                  "@type": "Schedule",
+                  "scheduleTimezone": "Asia/Kolkata",
+                  "repeatFrequency": "P1W",
+                  "duration": "PT60M"
+                },
+                "instructor": {
+                  "@type": "Person",
+                  "name": "Kamlesh Sagar",
+                  "jobTitle": "Professional Music Instructor",
+                  "description": "15+ years of vocal coaching experience with Trinity certification",
+                  "url": "https://mymusicstudio.in/music-teacher-kamlesh-sagar"
+                },
+                "courseWorkload": "PT3M",
+                "courseFee": {
+                  "@type": "PriceSpecification",
+                  "price": "399-500",
+                  "priceCurrency": "INR"
+                }
+              }
+            ],
             "courseMode": "online",
             "educationalLevel": "Beginner to Advanced",
-            "instructor": {
-              "@type": "Person",
-              "name": "Kamlesh Sagar"
+            "teaches": [
+              "Voice tuning and pitch correction",
+              "Breathing techniques for stable notes", 
+              "Sur-Alankars and rhythm training",
+              "Raag-based Bollywood songs",
+              "Performance and mic techniques",
+              "Studio singing practice"
+            ],
+            "timeRequired": "PT3M",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "150",
+              "bestRating": "5",
+              "worstRating": "1"
             }
           })}
         </script>
