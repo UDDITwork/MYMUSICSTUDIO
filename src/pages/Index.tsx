@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
+import OptimizedHero from '../components/OptimizedHero';
 import Features from '../components/Features';
 import Courses from '../components/Courses';
 import About from '../components/About';
@@ -9,8 +9,9 @@ import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import CallToAction from '../components/CallToAction';
 import Footer from '../components/Footer';
-import FounderImage from '../components/FounderImage';
-import PerformanceOptimizer from '../components/PerformanceOptimizer';
+import OptimizedFounderImage from '../components/OptimizedFounderImage';
+import WhatsAppFloat from '../components/WhatsAppFloat';
+import AdvancedPerformanceOptimizer from '../components/AdvancedPerformanceOptimizer';
 import SEO from '../components/SEO';
 
 const Index = () => {
@@ -37,10 +38,10 @@ const Index = () => {
   return (
     <>
       <SEO />
-      <PerformanceOptimizer />
+      <AdvancedPerformanceOptimizer />
       <main className="min-h-screen bg-white">
         <Navbar />
-        <Hero />
+        <OptimizedHero />
         <Features />
         <About />
         <Courses />
@@ -48,7 +49,8 @@ const Index = () => {
         <FAQ />
         <CallToAction />
         <Footer />
-        <FounderImage />
+        <OptimizedFounderImage />
+        <WhatsAppFloat />
       </main>
     </>
   );

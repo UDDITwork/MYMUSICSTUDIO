@@ -1,108 +1,123 @@
 
-import { useState, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
-import { Music, Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Music, Headphones, MusicNotes, Users } from './Icons';
 
 const OptimizedHero = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const elementRef = useRef<HTMLDivElement>(null);
 
-  // Preload critical image
   useEffect(() => {
-    const img = new Image();
-    img.src = 'https://www.learningandthebrain.com/blog/wp-content/uploads/2017/05/AdobeStock_66165135_Credit.jpg';
-    img.onload = () => setImageLoaded(true);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = document.querySelectorAll('.reveal-from-bottom, .reveal-from-left, .reveal-from-right');
+    elements.forEach(el => observer.observe(el));
+
+    return () => {
+      elements.forEach(el => observer.unobserve(el));
+    };
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-critical">
-      {/* Optimized Background Image with WebP fallback */}
-      <div className="absolute inset-0 z-0">
-        <picture>
-          <source 
-            srcSet="https://www.learningandthebrain.com/blog/wp-content/uploads/2017/05/AdobeStock_66165135_Credit.jpg" 
-            type="image/jpeg" 
-          />
-          <img 
-            src="https://www.learningandthebrain.com/blog/wp-content/uploads/2017/05/AdobeStock_66165135_Credit.jpg"
-            alt="Music studio background"
-            className={`w-full h-full object-cover transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-            width="1920"
-            height="1080"
-            fetchPriority="high"
-            decoding="async"
-          />
-        </picture>
-        <div className="absolute inset-0 bg-gradient-to-r from-music-primary/80 to-music-secondary/60"></div>
+    <section className="relative min-h-screen bg-gradient-to-br from-music-light via-white to-music-light overflow-hidden hero-critical">
+      {/* Optimized Background Image with proper loading */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-20">
+        <img 
+          src="https://www.learningandthebrain.com/blog/wp-content/uploads/2017/05/AdobeStock_66165135_Credit.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+          width="1920"
+          height="1080"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+        />
+      </div>
+      
+      {/* Floating Music Notes Animation - Optimized */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <MusicNotes />
       </div>
 
-      {/* Floating Music Notes - Optimized */}
-      <div className="absolute inset-0 z-10">
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute text-white/20 text-4xl note-animation"
-            style={{
-              left: `${15 + i * 15}%`,
-              top: `${20 + i * 10}%`,
-              '--delay': i,
-              transform: 'translateZ(0)', // Force GPU acceleration
-            } as React.CSSProperties}
-          >
-            ♪
-          </div>
-        ))}
-      </div>
-
-      {/* Hero Content - Critical CSS Applied */}
-      <div className="container mx-auto px-4 relative z-20">
-        <div className="text-center text-white max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-7xl font-bold mb-6 reveal-from-bottom hero-text-gradient">
-            Learn Music Online with{' '}
-            <span className="text-music-accent">Expert Teachers</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl mb-8 opacity-90 reveal-from-bottom delay-200 max-w-3xl mx-auto">
-            Master Piano, Western Singing & Bollywood Vocals from home. 
-            Trinity & ABRSM certified courses with 15+ years experienced instructors.
-          </p>
-
-          <div className="flex flex-col md:flex-row gap-4 justify-center items-center reveal-from-bottom delay-400">
-            <a href="https://calendly.com/kamleshsagar1/music-lessons" target="_blank" rel="noopener noreferrer">
-              <Button 
-                size="lg" 
-                className="bg-music-accent hover:bg-music-accent/90 text-white px-8 py-6 text-lg font-semibold shadow-xl transform hover:scale-105 transition-all duration-300"
-                aria-label="Book a free demo music lesson"
-              >
-                <Calendar className="mr-2 h-5 w-5" />
-                Book Free Demo Class
-              </Button>
-            </a>
+      <div className="container mx-auto px-4 pt-32 pb-20 md:pt-40 md:pb-32 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="space-y-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold reveal-from-bottom hero-text-gradient">
+              Online Music Classes That Inspire
+            </h1>
+            <p className="text-lg md:text-xl text-music-dark/80 max-w-xl reveal-from-bottom delay-200">
+              Discover your musical potential with professional online classes in piano, keyboard, Bollywood singing, and Western vocals — for beginners and advanced learners alike.
+            </p>
             
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm px-8 py-6 text-lg font-semibold"
-              aria-label="View our music courses"
-            >
-              <Music className="mr-2 h-5 w-5" />
-              View Our Courses
-            </Button>
+            <div className="flex flex-wrap gap-4 reveal-from-bottom delay-400">
+              <a href="https://calendly.com/kamleshsagar1/music-lessons" target="_blank" rel="noopener noreferrer">
+                <Button className="bg-music-primary hover:bg-music-primary/90 text-white px-8 py-4 text-lg min-h-[48px] min-w-[160px] btn-critical">
+                  Book Free Demo Class
+                </Button>
+              </a>
+              <Link to="/courses">
+                <Button variant="outline" className="border-music-primary text-music-primary hover:bg-music-primary/10 px-8 py-4 text-lg min-h-[48px] min-w-[140px]">
+                  Explore Courses
+                </Button>
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-8 reveal-from-bottom delay-600">
+              <div className="flex items-center gap-2">
+                <div className="bg-music-primary/10 p-2 rounded-full">
+                  <Headphones className="h-5 w-5 text-music-primary" />
+                </div>
+                <span className="font-medium">Expert Instructors</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="bg-music-primary/10 p-2 rounded-full">
+                  <Music className="h-5 w-5 text-music-primary" />
+                </div>
+                <span className="font-medium">1:1 Classes</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="bg-music-primary/10 p-2 rounded-full">
+                  <Users className="h-5 w-5 text-music-primary" />
+                </div>
+                <span className="font-medium">Global Students</span>
+              </div>
+            </div>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center reveal-from-bottom delay-600">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-              <div className="text-2xl font-bold">15+</div>
-              <div className="text-sm opacity-90">Years Experience</div>
+          <div className="relative lg:pl-10 reveal-from-right">
+            <div className="relative rounded-lg overflow-hidden shadow-xl border-8 border-white">
+              <div className="aspect-w-16 aspect-h-9">
+                <img 
+                  src="https://www.learningandthebrain.com/blog/wp-content/uploads/2017/05/AdobeStock_66165135_Credit.jpg" 
+                  alt="Students playing instruments in professional music class - Learn piano, keyboard and singing online" 
+                  className="w-full h-full object-cover"
+                  width="800"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                <div className="p-6 text-white">
+                  <h2 className="text-xl font-bold">Professional Training</h2>
+                  <p className="text-sm opacity-80">Trinity, ABRSM & Rock School certification courses</p>
+                </div>
+              </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-              <div className="text-2xl font-bold">500+</div>
-              <div className="text-sm opacity-90">Students Worldwide</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-              <div className="text-2xl font-bold">Trinity</div>
-              <div className="text-sm opacity-90">Certified Courses</div>
-            </div>
+
+            {/* Decorative elements */}
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-music-accent/20 rounded-full blur-2xl"></div>
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-music-primary/20 rounded-full blur-3xl"></div>
           </div>
         </div>
       </div>

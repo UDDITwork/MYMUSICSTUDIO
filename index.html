@@ -7,12 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
-    <link rel="canonical" href="https://mymusicstudio.in/" />
     
-    <!-- Preconnect to external domains -->
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.mymusicstudio.in/" />
+    
+    <!-- Critical Resource Preloads -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com">
+    
+    <!-- Preload Critical LCP Image -->
+    <link rel="preload" as="image" 
+          href="https://www.learningandthebrain.com/blog/wp-content/uploads/2017/05/AdobeStock_66165135_Credit.jpg"
+          fetchpriority="high">
+    
+    <!-- Preload Critical Font -->
+    <link rel="preload" as="font" 
+          href="https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" 
+          type="font/woff2" crossorigin>
+    
+    <!-- Critical CSS Inline -->
+    <style>
+      /* Critical above-the-fold CSS */
+      body { margin: 0; font-family: 'Montserrat', sans-serif; }
+      .hero-critical { min-height: 100vh; background: linear-gradient(135deg, #f8f9ff, white, #f8f9ff); }
+      .navbar-critical { position: fixed; top: 0; width: 100%; z-index: 50; background: white; }
+      .btn-critical { 
+        background: #ff6b35; 
+        color: white; 
+        padding: 12px 24px; 
+        border-radius: 8px; 
+        text-decoration: none; 
+        display: inline-block;
+        min-height: 48px;
+        min-width: 160px;
+      }
+      /* Prevent layout shift */
+      img { max-width: 100%; height: auto; }
+    </style>
+    
+    <!-- Optimized Font Loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Default meta tags (will be overridden by React Helmet) -->
     <title>My Music Studio | Online Music Classes - Piano, Singing, Trinity Certified</title>
@@ -23,20 +58,28 @@
     
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mymusicstudio.in/" />
+    <meta property="og:url" content="https://www.mymusicstudio.in/" />
     <meta property="og:title" content="My Music Studio | Online Music Classes" />
     <meta property="og:description" content="Learn Piano, Western Singing & Bollywood Vocals online with Trinity certified instructors." />
-    <meta property="og:image" content="https://mymusicstudio.in/logo.PNG" />
+    <meta property="og:image" content="https://www.mymusicstudio.in/logo.PNG" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://mymusicstudio.in/" />
+    <meta property="twitter:url" content="https://www.mymusicstudio.in/" />
     <meta property="twitter:title" content="My Music Studio | Online Music Classes" />
     <meta property="twitter:description" content="Learn Piano, Western Singing & Bollywood Vocals online with Trinity certified instructors." />
-    <meta property="twitter:image" content="https://mymusicstudio.in/logo.PNG" />
+    <meta property="twitter:image" content="https://www.mymusicstudio.in/logo.PNG" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Defer non-critical scripts -->
+    <script defer>
+      // Load analytics after main content
+      window.addEventListener('load', function() {
+        // GTM or other analytics can be loaded here
+      });
+    </script>
   </body>
 </html>
