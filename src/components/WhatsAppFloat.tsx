@@ -16,16 +16,30 @@ const WhatsAppFloat = () => {
         aria-label="Chat with us on WhatsApp"
       >
         <div className="relative">
-          {/* WhatsApp circular button with proper WhatsApp SVG icon */}
-          <div className="w-16 h-16 bg-[#25D366] hover:bg-[#20B358] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110">
-            {/* Custom WhatsApp SVG Icon */}
-            <svg 
-              viewBox="0 0 24 24" 
-              className="w-9 h-9 text-white fill-current"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
-            </svg>
+          {/* WhatsApp circular button with improved icon */}
+          <div className="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 overflow-hidden">
+            {/* Try the image first, fallback to icon */}
+            <img 
+              src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-whatsapp-icon-png-image_3584844.jpg"
+              alt="WhatsApp"
+              className="w-10 h-10 object-contain"
+              onError={(e) => {
+                // If image fails to load, hide it and show the icon instead
+                e.currentTarget.style.display = 'none';
+                const icon = e.currentTarget.nextElementSibling;
+                if (icon) icon.style.display = 'block';
+              }}
+            />
+            {/* Fallback icon - hidden by default, shown if image fails */}
+            <div className="hidden">
+              <svg 
+                viewBox="0 0 24 24" 
+                className="w-8 h-8 text-white fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M12.012 2C6.486 2 2.013 6.474 2.013 12c0 1.654.402 3.217 1.113 4.597L2 22l5.514-1.097C8.89 21.614 10.44 22 12.012 22c5.525 0 9.998-4.474 9.998-10S17.537 2 12.012 2zm5.76 14.146c-.233.65-1.36 1.223-1.899 1.275-.507.049-.946.22-3.172-.663-2.826-1.12-4.673-3.963-4.816-4.145-.144-.183-1.177-1.56-1.177-2.975s.744-2.11 1.008-2.4c.264-.29.576-.363.768-.363s.384.003.552.01c.177.007.413-.067.646.493.233.56.794 1.933.863 2.073.07.14.116.305.023.488-.093.183-.14.297-.28.457-.14.16-.294.357-.42.48-.14.14-.287.29-.123.57.164.28.728 1.2 1.56 1.943 1.073.96 1.97 1.26 2.25 1.4.28.14.443.117.607-.07.164-.187.7-.817.887-1.097.187-.28.374-.233.63-.14.257.093 1.63.77 1.91.91.28.14.467.21.537.327.07.117.07.677-.163 1.327z"/>
+              </svg>
+            </div>
           </div>
           
           {/* Tooltip */}
@@ -35,7 +49,7 @@ const WhatsAppFloat = () => {
           </div>
           
           {/* Pulse animation */}
-          <div className="absolute inset-0 rounded-full border-2 border-[#25D366] animate-ping opacity-40"></div>
+          <div className="absolute inset-0 rounded-full border-2 border-green-400 animate-ping opacity-40"></div>
         </div>
       </a>
     </div>
