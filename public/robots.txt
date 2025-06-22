@@ -1,83 +1,33 @@
 
-# Robots.txt for My Music Studio - Online Music Classes
-# Website: https://mymusicstudio.in
-
-# Allow all major search engines with enhanced directives
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-User-agent: WhatsApp
-Allow: /
-
-# Allow all other bots
 User-agent: *
 Allow: /
-Crawl-delay: 2
 
-# Important pages for music education SEO
+# Main pages
 Allow: /
 Allow: /about
 Allow: /courses
-Allow: /courses/bollywood-singing
-Allow: /courses/western-singing
-Allow: /courses/trinity-certification
 Allow: /contact
 Allow: /blog
-Allow: /blog/*
 
-# Allow important resources for SEO
-Allow: /static/css/
-Allow: /static/js/
-Allow: /favicon.ico
-Allow: /logo.png
-Allow: /og-image.jpg
-Allow: /twitter-image.jpg
+# Course pages
+Allow: /courses/bollywood-singing
+Allow: /courses/western-singing
+Allow: /courses/piano
+Allow: /courses/trinity-certification
 
-# Block unnecessary paths that don't help SEO
-Disallow: /api/
-Disallow: /_netlify/
-Disallow: /admin/
-Disallow: /.netlify/
-Disallow: /*.json$
-Disallow: /build/
-Disallow: /node_modules/
-Disallow: /src/
-Disallow: /.git/
+# Important SEO pages
+Allow: /music-teacher-kamlesh-sagar
+Allow: /book-demo
+Allow: /pricing
 
-# Allow music-related file types for rich snippets
-Allow: /*.mp3$
-Allow: /*.mp4$
-Allow: /*.jpg$
-Allow: /*.png$
-Allow: /*.webp$
-Allow: /*.jpeg$
+# Block admin/internal pages
+Disallow: /admin
+Disallow: /api
+Disallow: /_*
+Disallow: /.*
 
-# Enhanced crawl delay for respectful crawling
-Crawl-delay: 1
-
-# Multiple sitemap declarations for better indexing
+# Sitemap location
 Sitemap: https://mymusicstudio.in/sitemap.xml
-Sitemap: https://mymusicstudio.in/sitemap-courses.xml
-Sitemap: https://mymusicstudio.in/sitemap-blog.xml
 
-# Host declaration for canonical URL
-Host: https://mymusicstudio.in
-
-# Clean URL parameters that don't affect content
-Disallow: /*?utm_*
-Disallow: /*?fbclid=*
-Disallow: /*?gclid=*
+# Crawl delay
+Crawl-delay: 1

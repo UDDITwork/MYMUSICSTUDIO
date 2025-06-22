@@ -12,7 +12,7 @@ import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NewBlog from "./pages/NewBlog";
-import NotFound from "./pages/NotFound";
+import NotFoundCustom from "./pages/NotFoundCustom";
 import BollywoodSinging from "./pages/BollywoodSinging";
 import WesternSinging from "./pages/WesternSinging";
 import TrinityCertification from "./pages/TrinityCertification";
@@ -39,7 +39,7 @@ const App = () => (
             <Route path="/blog/new" element={<NewBlog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFoundCustom />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
